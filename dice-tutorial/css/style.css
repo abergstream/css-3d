@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+:root {
+    --dotColor: #000;
+    --dotDistance: 145px;
+    --dotsMinusDistance: calc(var(--dotDistance) * -1);
+}
+body {
+    margin: 0;
+}
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dice {
+    width: 500px;
+    height: 500px;
+
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(185deg) rotateX(150deg) rotateZ(315deg);
+    animation: rotate 15s linear infinite;
+}
+.side {
+    width: 100%;
+    height: 100%;
+    background: #da0060;
+    border: 2px solid black;
+    position: absolute;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before {
+        content: "";
+        width: 20%;
+        height: 20%;
+        background: var(--dotColor);
+        border-radius: 50%;
+    }
+}
+.one {
+    transform: translateZ(250px);
+
+}
+.two {
+    transform: translateX(-250px) rotateY(-90deg);
+
+    &:before {
+        background: transparent;
+        box-shadow: var(--dotColor) var(--dotsMinusDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotDistance) 0px 0px;
+    }
+}
+.three {
+    transform: translateY(250px) rotateX(90deg);
+
+    &:before {
+        background: var(--dotColor);
+        box-shadow: var(--dotColor) var(--dotsMinusDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotDistance) 0px 0px;
+    }
+}
+.four {
+    transform: translateY(-250px) rotateX(90deg);
+    &:before {
+        background: transparent;
+        box-shadow: var(--dotColor) var(--dotsMinusDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotsMinusDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotsMinusDistance) 0px 0px;
+    }
+}
+.five {
+    transform: translateX(250px) rotateY(90deg);
+
+    &:before {
+        background: --var(--dotColor);
+        box-shadow: var(--dotColor) var(--dotsMinusDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotsMinusDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotsMinusDistance) 0px 0px;
+    }
+}
+.six {
+    transform: translateZ(-250px);
+
+    &:before {
+        background: transparent;
+        box-shadow: var(--dotColor) var(--dotsMinusDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotsMinusDistance) var(--dotDistance) 0px 0px, var(--dotColor) var(--dotDistance) var(--dotsMinusDistance) 0px 0px, var(--dotColor) var(--dotsMinusDistance) 0px 0px 0px, var(--dotColor) var(--dotDistance) 0px 0px 0px;
+    }
+}
+
+@keyframes rotate {
+    from {
+      transform: rotateY(0) rotateX(25deg) rotateZ(25deg);
+    }
+    to {
+      transform: rotateY(360deg) rotateX(25deg) rotateZ(25deg);
+    }
+  }
+  
